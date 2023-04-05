@@ -1,0 +1,58 @@
+<div class="container mt-3">
+    <div class="card shadow">
+        <div class="card-header">
+            <h1 class="mb-4">Add Student</h1>
+        </div>
+        <div class="card-body">
+            <form [formGroup]="studentForm">
+                <div class="row mb-2">
+                    <div class="col-md-2">
+                        <label>Name</label>
+                    </div> 
+                    <div class="col-md-10">
+                        <input type="text" formControlName="name" class="form-control" placeholder="First Name">
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-2">
+                        <label>Last Name</label>
+                    </div>
+                    <div class="col-md-10">
+                        <input type="text" formControlName="lastName" class="form-control" placeholder="Last Name">
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-2">
+                        <label>Age</label>
+                    </div>
+                    <div class="col-md-10">
+                        <input type="text" formControlName="age" class="form-control" placeholder="Roll No">
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-2">
+                        <label>Address</label>
+                    </div>
+                    <div class="col-md-10">
+                        <input type="text" formControlName="address" class="form-control" placeholder="City">
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-2">
+                        <label>Nationality</label>
+                    </div>
+                    <div class="col-md-10">
+                        <input type="text" formControlName="nationality" class="form-control" placeholder="State">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-sm btn-primary" (click)="addStudent()">Submit</button> &nbsp;
+            <!-- <button class="btn btn-sm btn-warning"  *ngIf="this.studId.id" (click)="updateStudent()">Update</button> -->
+        </div>
+    </div>
+</div>
+
+
+
