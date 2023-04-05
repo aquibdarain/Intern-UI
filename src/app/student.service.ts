@@ -21,8 +21,14 @@ export class StudentService {
     return this.http.get(url);
   }
 
-  // getStudentById(){
-    
-  // }
+  getStudentById(id: number){
+    let url = `http://localhost:2023/student/getById/${id}`
+    return this.http.get(url)
+  }
+
+  updateStudent(id: number, obj: any){
+    let url = 'http://localhost:2023/student/update/';
+    return this.http.put(url+id, obj)
+  }
 
 }

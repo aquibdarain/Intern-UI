@@ -3,6 +3,7 @@ import { FormControl, FormGroup, RequiredValidator, Validators } from '@angular/
 import { StudentService } from 'src/app/student.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Route } from '@angular/router';
+import { log } from 'console';
 
 
 
@@ -20,22 +21,28 @@ export class CreateStudentComponent implements OnInit {
   ) { }
 
 
-  studId : any;
-
+  studId: any;
+  studData: any
 
   ngOnInit(): void {
     this.actRoute.queryParams.subscribe((params) => {
       console.log(params);
       this.studId = params;
+
       if (this.studId) {
-        // this.getStudentById();
+        this.studentService.getStudentById(this.studId.id).subscribe((success: any) => {
+          this.studData = success.result[0]
+          this.studentPatchData()
+          console.log(this.studData);
+        });
       }
-
     })
-
-
   }
 
+
+  studentPatchData() {
+    this.studentForm.patchValue(this.studData)
+  }
 
 
   studentForm = new FormGroup({
@@ -46,7 +53,14 @@ export class CreateStudentComponent implements OnInit {
     nationality: new FormControl()
   })
 
-
+  updateStudent() {
+    let obj = this.studentForm.value;
+    let id = this.studId.id
+    this.studentService.updateStudent(id, obj).subscribe((success) => {
+      console.log(success);
+      this.router.navigate(['/student/getAllStudent'])
+    })
+  }
 
 
   addStudent() {
