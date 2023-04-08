@@ -10,6 +10,9 @@ import { Routes, RouterModule } from '@angular/router';
 
 var routes: Routes = [
   {
+    path: '', redirectTo : 'getAllStudent', pathMatch: 'full'
+  },
+  {
     path:'getAllStudent', component:GetAllStudentsComponent
   },
   {

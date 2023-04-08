@@ -14,7 +14,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 var routes: Routes = [
- 
+  {
+    path: '', redirectTo: 'student', pathMatch:'full'
+  },
   {
     path: 'student',
     loadChildren:()=> import('./students/students.module').then(m=>m.StudentsModule),

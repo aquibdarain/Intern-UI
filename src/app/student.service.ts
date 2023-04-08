@@ -31,4 +31,9 @@ export class StudentService {
     return this.http.put(url+id, obj)
   }
 
+  deleteStudent(id: number){
+    let url = 'http://localhost:2023/student/delete/';
+    return this.http.delete(url+id);
+  }
+
 }

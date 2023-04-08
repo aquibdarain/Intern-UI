@@ -42,13 +42,13 @@ export class GetAllStudentsComponent implements OnInit {
       }
     });
   }
-  deleteStudent(d: any) {
-    // this.studentService.deleteStudent(d).subscribe((success) => {
-    //   console.log(success);
-    //   this.getAllStudent();
+  deleteStudent(id: any) {
+    this.studentService.deleteStudent(id).subscribe((success) => {
+      console.log(success);
+      this.getAllStudent();
 
-    // }, (error) => {
-    //   console.log(error);
-    // })
+    }, (error) => {
+      console.log(error);
+    })
   }
 }
